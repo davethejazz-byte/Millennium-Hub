@@ -7,7 +7,7 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "https://millennium-visuals-hub.base44.app/api/:splat"
+  to = "https://millennium-visuals-hub.base44.app/:splat"
   status = 200
   force = true
 
