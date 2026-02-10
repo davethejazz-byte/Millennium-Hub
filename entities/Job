@@ -1,0 +1,101 @@
+{
+  "name": "Job",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Job/event name"
+    },
+    "client_name": {
+      "type": "string",
+      "description": "Client name"
+    },
+    "client_email": {
+      "type": "string",
+      "description": "Client email"
+    },
+    "client_phone": {
+      "type": "string",
+      "description": "Client phone"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "audio",
+        "production",
+        "photography",
+        "videography",
+        "consultation",
+        "av_install",
+        "other"
+      ],
+      "description": "Type of service"
+    },
+    "description": {
+      "type": "string",
+      "description": "Job details"
+    },
+    "location": {
+      "type": "string",
+      "description": "Job location/venue"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Start date and time"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "End date and time"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "confirmed",
+        "in_progress",
+        "completed",
+        "cancelled"
+      ],
+      "default": "pending"
+    },
+    "assigned_employees": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Employee IDs assigned to job"
+    },
+    "needs_operator": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this job needs additional operators"
+    },
+    "operator_category": {
+      "type": "string",
+      "enum": [
+        "audio_engineer",
+        "camera_operator",
+        "photographer",
+        "video_editor",
+        "lighting_tech",
+        "production_assistant",
+        "other"
+      ],
+      "description": "Type of operator needed"
+    },
+    "operator_description": {
+      "type": "string",
+      "description": "Details about what the operator will do"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "category",
+    "start_date"
+  ]
+}
