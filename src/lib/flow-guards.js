@@ -32,6 +32,7 @@ export function hasDuplicateApplication(applications, jobId, email) {
 }
 
 export function filterOpenJobs(jobs, now = new Date()) {
+  if (!Array.isArray(jobs)) return [];
   return jobs.filter(
     (job) =>
       job.needs_operator &&

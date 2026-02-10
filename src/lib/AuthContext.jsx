@@ -21,9 +21,12 @@ export const AuthProvider = ({ children }) => {
       setIsLoadingPublicSettings(true);
       setIsLoadingAuth(true);
       setAuthError(null);
+
+      const serverUrl = appParams.appBaseUrl || window.location.origin;
+      const publicSettingsUrl = `${serverUrl}/api/apps/public/prod/public-settings/by-id/${appParams.appId}`;
       
       // First read public app state; this indicates whether login is required.
-      const publicSettingsResponse = await fetch(`/api/apps/public/prod/public-settings/by-id/${appParams.appId}`, {
+      const publicSettingsResponse = await fetch(publicSettingsUrl, {
         method: 'GET',
         headers: {
           'X-App-Id': appParams.appId || '',
